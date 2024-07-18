@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Button from "./components/Button/Button";
+import TextArea from "./components/TextArea/TextArea";
+import "./App.css";
 
-function App() {
+const App: React.FC = () => {
+  const [text, setText] = useState("");
+
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setText(e.target.value);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <h1>My React App</h1>
+      <Button
+        label="Click Me"
+        disabled={false}
+        id="myButton"
+        onClick={() => {}}
+      />
+      <TextArea
+        value={text}
+        onChange={handleTextChange}
+        onClick={() => {}}
+        backgroundColor="#f0f0f0"
+        width="300px"
+        id="myTextArea"
+      />
     </div>
   );
-}
+};
 
 export default App;

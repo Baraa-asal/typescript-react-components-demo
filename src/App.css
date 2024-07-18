@@ -1,6 +1,32 @@
 .App {
   text-align: center;
 }
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px; /* Adds space between elements */
+}
+
+h1 {
+  color: #333;
+  margin-bottom: 20px; /* Adds space below the header */
+}
+
+
+
 
 .App-logo {
   height: 40vmin;
