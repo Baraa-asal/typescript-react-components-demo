@@ -9,6 +9,11 @@ const App: React.FC = () => {
   const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
   };
+  const handleTextAreaClick = (
+    event: React.MouseEvent<HTMLTextAreaElement>
+  ) => {
+    console.log("Text area clicked!", event);
+  };
 
   return (
     <div className="app-container">
@@ -22,7 +27,7 @@ const App: React.FC = () => {
       <TextArea
         value={text}
         onChange={handleTextChange}
-        onClick={() => {}}
+        onClick={handleTextAreaClick}
         backgroundColor="#f0f0f0"
         width="300px"
         id="myTextArea"

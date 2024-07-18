@@ -8,7 +8,7 @@ const useAlertProps = <T>() => {
 
   const alertProps = (props: T) => {
     alert(JSON.stringify(props, replacer, 2));
-    console.log("Mina a a a a  ", JSON.stringify(props, replacer, 2));
+    console.log("- - - - -", JSON.stringify(props, replacer, 2));
   };
 
   return alertProps;

@@ -2,30 +2,29 @@ import React from "react";
 import styles from "./TextArea.module.css";
 import useAlertProps from "../../hooks/useAlertProps";
 
-// Define the props type for TextArea
-type TextAreaProps = {
-  value: string;
+interface TextAreaProps
+  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+  id?: string;
   backgroundColor?: string;
   width?: string;
-  id?: string;
-  onClick: (props: TextAreaProps) => void;
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
-};
+}
 
 const TextArea: React.FC<TextAreaProps> = (props) => {
-  const { value, onClick, onChange, backgroundColor, width, id } = props;
+  const { onClick, id, width, backgroundColor, style, ...rest } = props;
+  const handleClick = (event: React.MouseEvent<HTMLTextAreaElement>) => {
+    alertProps(props); // Alert the props
+    if (onClick) {
+      onClick(event); // Call the original onClick if provided
+    }
+  };
   const alertProps = useAlertProps<TextAreaProps>();
   return (
     <textarea
-      id={id}
+      {...rest}
       className={styles.textArea}
-      value={value}
-      onClick={() => {
-        onClick(props);
-        alertProps(props);
-      }}
-      onChange={onChange}
-      style={{ backgroundColor, width }}
+      id={id}
+      style={{ ...style, backgroundColor, width }}
+      onClick={handleClick}
     />
   );
 };
